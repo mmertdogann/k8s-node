@@ -1,0 +1,76 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodeapp-deployment
+  labels:
+    app: nodeapp
+spec:
+  selector:
+    matchLabels:
+      app: nodeapp
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: nodeapp
+    spec:
+      containers:
+        - name: nodeapp
+          image: mmertdogann/k8snode:1.0
+          ports:
+            - containerPort: 3000
+          volumeMounts:
+          - name: nodeapp-config-vol
+            mountPath: /etc/config
+          env:
+            - name: SOZ
+              valueFrom:
+                secretKeyRef:
+                  name: gizli-soz
+                  key: derki
+            - name: ILKELER1
+              valueFrom:
+                configMapKeyRef:
+                  name: ataturk-ilke-inkilaplari
+                  key: i1
+            - name: ILKELER2
+              valueFrom:
+                configMapKeyRef:
+                  name: ataturk-ilke-inkilaplari
+                  key: i2
+            - name: ILKELER3
+              valueFrom:
+                configMapKeyRef:
+                  name: ataturk-ilke-inkilaplari
+                  key: i3
+            - name: ILKELER4
+              valueFrom:
+                configMapKeyRef:
+                  name: ataturk-ilke-inkilaplari
+                  key: i4
+            - name: ILKELER5
+              valueFrom:
+                configMapKeyRef:
+                  name: ataturk-ilke-inkilaplari
+                  key: i5
+            - name: ILKELER6
+              valueFrom:
+                configMapKeyRef:
+                  name: ataturk-ilke-inkilaplari
+                  key: i6
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "10m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+      volumes:
+      - name: nodeapp-config-vol
+        configMap:
+          name: ataturk-ilke-inkilaplari

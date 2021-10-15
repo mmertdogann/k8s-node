@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ataturk-ilke-inkilaplari
+data:
+  i1: "Cumuhuriyetcilik"
+  i2: "Milliyetcilik"
+  i3: "Halkcilik"
+  i4: "Devletcilik"
+  i5: "Laiklik"
+  i6: "Devrimcilik"
