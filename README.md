@@ -2,8 +2,6 @@
 
 A simple containerized (`Docker`) and orchestrated (`Kubernetes`) web application
 
-<br>
-
 ## Technologies
 
 The project has been created using these technologies:
@@ -14,8 +12,6 @@ The project has been created using these technologies:
 * **Kubernetes** as container-orchestration system
 * **kubectl** as command-line tool to interact kubernetes
 
-<br>
-
 ## Setup & Installtion
 
 **Install:**
@@ -23,8 +19,6 @@ The project has been created using these technologies:
 1. `Node.js` from <a href="https://nodejs.org/en/download/">here</a>
 2. `Docker` from <a href="https://docs.docker.com/get-docker/">here</a> then enable kubernetes
 3. `kubectl` from <a href="https://kubernetes.io/docs/tasks/tools/">here</a> 
-
-<br>
 
 ```bash
 git clone <repo-url>
@@ -38,8 +32,6 @@ docker build -t <image-name> .
 ```
 
 ⚠️ If you will use the newly created Docker image, you need to change the image property of the deployment manifest with the new `<image-name>`.
-
-<br>
 
 ## Running The App
 
@@ -60,8 +52,6 @@ kubectl get pod
 kubectl get service
 kubectl get all
 ```
-
-<br>
 
 ## Viewing The App
 
